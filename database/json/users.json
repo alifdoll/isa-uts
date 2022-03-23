@@ -4,12 +4,12 @@
         "username": "alifian123",
         "name": "Alifian Fajar",
         "email": "alifianfajarpratama@gmail.com",
-        "password": "$2y$10$yrzmk92mvNCFimmU1cpLZ.NimzGEhZG6kGJW\/DsIKt5B9M4TlIBJi",
+        "password": "$2y$10$50\/xjmKVFhWMoWzzD2.sE.bLh0Bzjfv7VLblbjrLowz0jwN5FMKVe",
         "phone": "082334975575",
         "roles": "customer",
         "suspend": 0,
         "created_at": "2021-11-28 16:11:25",
-        "updated_at": "2021-12-06 16:17:34"
+        "updated_at": "2022-03-23 08:27:16"
     },
     {
         "id": 2,
