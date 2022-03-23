@@ -99,6 +99,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/detailtr/{id}', 'OrderController@detailsTr')->name('admin.transaction.detail');
     Route::get('/result', 'OrderController@result')->name("result");
     Route::post('/history/detail', 'OrderController@history')->name('order.history');
+    Route::post('/history/detail2', 'ProductController@shipmentHistory')->name('product.shipmentHistory');
 
     // End Order
 });

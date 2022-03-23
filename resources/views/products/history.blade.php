@@ -69,6 +69,42 @@
                 }
             })
         }
+
+        function shipmentDetail(id) {
+            console.log(id);
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('product.shipmentHistory') }}",
+                data: {
+                    _token: "<?= csrf_token() ?>",
+                    id: id,
+                },
+                success: function(data) {
+                    console.log(data);
+                    $("#content2").html('');
+                    for (i = 0; i < data.msg.length; i++) {
+                       
+                        $("#content2").append(
+                            `
+                            <tr class="table-td-content" >
+                                
+                                <td>
+                                    ${data.msg[i].sequence}  
+                                    
+                                </td>    
+                                
+                <td scope="row">
+                    ${data.msg[i].current_location}  
+
+                  
+                </td>
+            </tr>`
+                        );
+                    }
+
+                }
+            })
+        }
     </script>
 @endsection
 
@@ -100,6 +136,7 @@
                                         <th class="product-thumbnail">Order Date</th>
                                         <th class="product-name">Action</th>
                                         <th class="product-name">Status</th>
+                                        <th class="product-name">Shipment Status</th>
 
                                     </tr>
                                 </thead>
@@ -121,6 +158,13 @@
                                                 @else
                                                     <p></i>Confirmed</p>
                                                 @endif
+                                            </td>
+                                            <td>
+                                                @foreach ($shipment as $s)
+                                                <a role="button" class="btn btn-primary"
+                                                    onclick="shipmentDetail('{{ $s[0]->id }}')" data-toggle="modal"
+                                                    data-target="#modal2" href="#modal"></i>Details</a>
+                                                @endforeach
                                             </td>
                                         </tr>
                                     @endforeach
@@ -161,6 +205,42 @@
                             </tr>
                         </thead>
                         <tbody id="content">
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal Shipment --}}
+    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Shipment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="msg_modal" class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Sequence</th>
+                                {{-- <th class="product-thumbnail">Id</th> --}}
+                                <th class="product-name">Current Location</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody id="content2">
 
 
 

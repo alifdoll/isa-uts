@@ -7,6 +7,8 @@ use App\CartSession;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
+use App\Shipment;
+use App\Shipment_Stop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -237,8 +239,36 @@ class ProductController extends Controller
     public function history()
     {
         $order = Order::where('user_id', Auth::user()->id)->get();
+        $shipment=[];
+        $shipment_stop=[];
+        foreach($order as $o)
+        {
+            $shipment[] = Shipment::where('order_id', $o->id)->get();
+        }
+        // foreach($shipment as $s)
+        // {
+        //     $shipment_stop[] = Shipment_Stop::where('shipment_id', $s->id)->get();
+        // }
         // $order = Order::find(1);
         // return dd($order[0]->details);
-        return view('products.history', compact('order'));
+        return view('products.history', compact('order','shipment'));
+        // dd($shipment);
+    }
+
+    public function shipmentHistory(Request $request)
+    {
+        $id = $request->get('id');
+        $shipment_stop = Shipment_Stop::select(
+            "sequence",
+            "current_location"
+        ) 
+        ->join("shipments as s", "s.id", "=", "shipment_stops.shipment_id")
+        ->where('shipment_id', $id)
+        ->get();
+        // $order = Order::find($id)->join("order_details", "order_details.order_id", "=", "orders.id");
+        return response()->json(array(
+            "msg" => $shipment_stop
+        ), 200);
+        // dd($shipment_stop);
     }
 }
