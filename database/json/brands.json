@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Lenovo",
+        "created_at": "2021-11-29 12:04:02",
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 2,
+        "name": "HP",
+        "created_at": "2021-11-29 12:04:02",
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 3,
+        "name": "Dell",
+        "created_at": "2021-11-29 12:04:37",
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 4,
+        "name": "Apple",
+        "created_at": "2021-11-29 12:04:58",
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 5,
+        "name": "Asus",
+        "created_at": "2021-11-29 12:04:58",
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 12,
+        "name": "Oppo2",
+        "created_at": "2021-12-08 05:17:10",
+        "updated_at": "2021-12-08 05:17:17",
+        "deleted_at": null
+    }
+]
