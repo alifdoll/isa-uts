@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "order_id": 2,
+        "pickup_address": "Rungkut Mejoyo Utara no 9",
+        "destination_address": "Jl. Kali Asih no 10",
+        "shipment_date": "2022-04-02 08:02:53",
+        "courier": 9,
+        "shipped": 0
+    }
+]

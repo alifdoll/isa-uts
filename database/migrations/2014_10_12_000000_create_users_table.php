@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('roles', ['customer', 'staff', 'administrator'])->default('customer');
+
+            $table->enum('roles', ['customer', 'staff', 'administrator', 'courier'])->default('customer');
             $table->boolean('suspend')->default(0);
             $table->timestamps();
         });
