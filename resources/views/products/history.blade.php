@@ -160,7 +160,7 @@
                                             <td>
                                                 @foreach ($shipment as $s)
                                                     <a role="button" class="btn btn-primary"
-                                                        onclick="shipmentDetail('{{ $s }}')" data-toggle="modal"
+                                                        onclick="shipmentDetail('{{ $s[0]->id }}')" data-toggle="modal"
                                                         data-target="#modal2" href="#modal"></i>Details</a>
                                                 @endforeach
                                             </td>
