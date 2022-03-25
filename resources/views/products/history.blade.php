@@ -2,9 +2,7 @@
 <!--  -->
 
 @section('ajax')
-
     <script>
-        
         function historyDetail(id) {
             console.log(id);
             $.ajax({
@@ -19,11 +17,11 @@
                     $("#content").html('');
                     for (i = 0; i < data.msg.length; i++) {
                         let paidStatus = data.msg[i].order_paid_at;
-                    if (paidStatus == null) {
-                        paidStatus = "Still not Paid";
-                    } else {
-                        paidStatus = paidStatus
-                    }
+                        if (paidStatus == null) {
+                            paidStatus = "Still not Paid";
+                        } else {
+                            paidStatus = paidStatus
+                        }
                         $("#content").append(
                             `
                             <tr class="table-td-content" >
@@ -83,7 +81,7 @@
                     console.log(data);
                     $("#content2").html('');
                     for (i = 0; i < data.msg.length; i++) {
-                       
+
                         $("#content2").append(
                             `
                             <tr class="table-td-content" >
@@ -161,9 +159,9 @@
                                             </td>
                                             <td>
                                                 @foreach ($shipment as $s)
-                                                <a role="button" class="btn btn-primary"
-                                                    onclick="shipmentDetail('{{ $s[0]->id }}')" data-toggle="modal"
-                                                    data-target="#modal2" href="#modal"></i>Details</a>
+                                                    <a role="button" class="btn btn-primary"
+                                                        onclick="shipmentDetail('{{ $s }}')" data-toggle="modal"
+                                                        data-target="#modal2" href="#modal"></i>Details</a>
                                                 @endforeach
                                             </td>
                                         </tr>
@@ -177,7 +175,7 @@
         </div>
     </div>
 
-    
+
     <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -236,7 +234,7 @@
                                 <th class="product-thumbnail">Sequence</th>
                                 {{-- <th class="product-thumbnail">Id</th> --}}
                                 <th class="product-name">Current Location</th>
-                                
+
 
                             </tr>
                         </thead>
