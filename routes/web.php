@@ -26,6 +26,10 @@ Route::get('/product/{id}', 'HomeController@detail');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+// Route::get('/', function () {
+//     return view('layouts.admin');
+// });
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/cart', 'ProductController@cart');
