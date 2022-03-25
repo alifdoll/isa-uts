@@ -40,7 +40,7 @@ class HomeController extends Controller
             $user = Auth::user();
             if ($user->roles == 'administrator' || $user->roles == 'staff') {
                 $product = Product::All();
-                return view('homeAdmin', compact('product'));
+                return view('admin', compact('product'));
             } else if ($user->roles == 'customer') {
                 $product = Product::All();
                 return view('home', compact('product'));
