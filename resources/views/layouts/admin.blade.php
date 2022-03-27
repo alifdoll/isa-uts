@@ -19,6 +19,8 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    @yield('css')
+
 
 </head>
 
@@ -56,23 +58,52 @@
                 Data
             </div>
 
+
+
+            @if(Auth::user()->roles == 'administrator')
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePegawai"
+                    aria-expanded="true" aria-controls="collapsePegawai">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pegawai</span>
+                </a>
+                <div id="collapsePegawai" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mgpegawai-add">Tambah Pegawai</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Track Item</span>
+                    <span>Barang</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Barang:</h6>
+                        <a class="collapse-item" href="/mgorder">Kirim Barang</a>
+                        <a class="collapse-item" href="cards.html">Track Barang</a>
                     </div>
                 </div>
             </li>
-
+            @else
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKurir"
+                    aria-expanded="true" aria-controls="collapseKurir">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Barang</span>
+                </a>
+                <div id="collapseKurir" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Barang:</h6>
+                        <a class="collapse-item" href="buttons.html">Pengiriman</a>
+                    </div>
+                </div>
+            </li>
+            @endif
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -162,7 +193,9 @@
 
 
             <!-- Main Content -->
-            @yield('content')
+            <div id="content">
+                @yield('content')
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -223,6 +256,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    @yield('javascript')
 
 </body>
 

@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
 
     // User
     Route::get('/mgpegawai', 'Homecontroller@user')->name('admin.user.homeUser');
+    // Route::get('/mgpegawai', 'Homecontroller@user')->name('admin.user.homeUser');
 
     Route::resource('/users', 'UserController');
 

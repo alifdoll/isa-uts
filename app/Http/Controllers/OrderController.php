@@ -17,7 +17,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-
         $order = Order::select(
             "orders.id",
             "orders.user_id",
@@ -29,7 +28,6 @@ class OrderController extends Controller
             ->join("users", "users.id", "=", "orders.user_id")
             ->get();
         return view('admin.transaction.homeTransaction', compact('order'));
-        // return dd($order);
     }
 
     /**
@@ -99,7 +97,7 @@ class OrderController extends Controller
 
 
         try {
-            $this->authorize('isAdmin',Auth::user());
+            $this->authorize('isAdmin', Auth::user());
             Order::destroy($order->id);
             return redirect()->route('admin.transaction.homeTransaction')->with('delete', 'Data Transaksi Berhasil Dihapus');
         } catch (\PDOException $e) {
@@ -149,10 +147,6 @@ class OrderController extends Controller
 
     public function detailsTr($id)
     {
-
-        
-
-        
         $order = Order::select(
             "orders.id as order_id",
             "orders.paid_at as order_paid_at",
@@ -163,13 +157,11 @@ class OrderController extends Controller
             "p.name as productName",
             "p.image as productImage",
             "p.price as unitPrice"
-
-
-        ) 
-        ->join("order_details as od", "od.order_id", "=", "orders.id")
-        ->join("products as p", "p.id", "=", "od.product_id")
-        ->where('order_id', $id)
-        ->get();
+        )
+            ->join("order_details as od", "od.order_id", "=", "orders.id")
+            ->join("products as p", "p.id", "=", "od.product_id")
+            ->where('order_id', $id)
+            ->get();
         // $order = Order::find($id)->join("order_details", "order_details.order_id", "=", "orders.id");
         return view('admin.transaction.detail', compact('order'));
         // return dd($order);
@@ -177,7 +169,7 @@ class OrderController extends Controller
     public function history(Request $request)
     {
 
-        
+
 
         $id = $request->get('id');
         $order = Order::select(
@@ -192,11 +184,11 @@ class OrderController extends Controller
             "p.price as unitPrice"
 
 
-        ) 
-        ->join("order_details as od", "od.order_id", "=", "orders.id")
-        ->join("products as p", "p.id", "=", "od.product_id")
-        ->where('order_id', $id)
-        ->get();
+        )
+            ->join("order_details as od", "od.order_id", "=", "orders.id")
+            ->join("products as p", "p.id", "=", "od.product_id")
+            ->where('order_id', $id)
+            ->get();
         // $order = Order::find($id)->join("order_details", "order_details.order_id", "=", "orders.id");
         return response()->json(array(
             "msg" => $order

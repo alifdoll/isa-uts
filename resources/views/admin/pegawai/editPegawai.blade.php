@@ -1,4 +1,7 @@
-@extends('layouts.admin') @section('header')
+@extends('layouts.admin')
+
+
+@section('header')
 <h3 class="page-title">User <small>Edit User</small></h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -27,53 +30,22 @@
 
                 <div class="row text-left">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <form
-                            method="POST"
-                            action="{{ route('users.update', $p->id) }}"
-                        >
+                        <form method="POST" action="{{ route('users.update', $p->id) }}">
                             @csrf @method("PUT")
                             <div class="mb-4">
-                                <label
-                                    for="exampleInputEmail1"
-                                    class="form-label"
-                                    >Username</label
-                                >
-                                <input
-                                    type="text"
-                                    value="{{ $p->username }}"
-                                    class="form-control"
-                                    name="username"
-                                />
+                                <label for="exampleInputEmail1" class="form-label">Username</label>
+                                <input type="text" value="{{ $p->username }}" class="form-control" name="username" />
                             </div>
 
                             <div class="mb-4">
-                                <label
-                                    for="exampleInputEmail1"
-                                    class="form-label"
-                                    >Name</label
-                                >
-                                <input
-                                    type="text"
-                                    value="{{ $p->name }}"
-                                    class="form-control"
-                                    name="name"
-                                />
+                                <label for="exampleInputEmail1" class="form-label">Name</label>
+                                <input type="text" value="{{ $p->name }}" class="form-control" name="name" />
                             </div>
 
                             <div class="mb-4">
-                                <label
-                                    for="exampleInputEmail1"
-                                    class="form-label"
-                                    >Email address</label
-                                >
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    name="email"
-                                    id="exampleInputEmail1"
-                                    value="{{ $p->email }}"
-                                    aria-describedby="emailHelp"
-                                />
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                                    value="{{ $p->email }}" aria-describedby="emailHelp" />
                                 <div id="emailHelp" class="form-text">
                                     We'll never share your email with anyone
                                     else.
@@ -81,32 +53,15 @@
                             </div>
 
                             <div class="mb-4">
-                                <label
-                                    for="exampleInputPassword1"
-                                    class="form-label"
-                                    >Password</label
-                                >
-                                <input
-                                    type="password"
-                                    class="form-control"
-                                    name="password"
-                                    value=""
-                                    id="exampleInputPassword1"
-                                />
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" value=""
+                                    id="exampleInputPassword1" />
                             </div>
 
                             <div class="mb-4">
-                                <label
-                                    for="exampleInputEmail1"
-                                    class="form-label"
-                                    >Suspend</label
-                                >
+                                <label for="exampleInputEmail1" class="form-label">Suspend</label>
 
-                                <select
-                                    class="form-select"
-                                    aria-label="Default select example"
-                                    name="suspend"
-                                >
+                                <select class="form-select" aria-label="Default select example" name="suspend">
                                     <option selected>
                                         Open this select menu
                                     </option>
@@ -115,11 +70,7 @@
                                 </select>
                             </div>
 
-                            <button
-                                type="submit"
-                                class="btn btn-primary btn-lg"
-                                style="width: 100%"
-                            >
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%">
                                 Submit
                             </button>
                         </form>

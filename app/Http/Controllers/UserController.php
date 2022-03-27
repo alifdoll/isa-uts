@@ -42,7 +42,7 @@ class UserController extends Controller
         $data->name = $request->get('name');
         $data->email = $request->get('email');
         $data->password = Hash::make($request->get('password'));
-        $data->roles = 'staff';
+        $data->roles = 'courier';
 
         $data->save();
         return redirect()->route('admin.user.homeUser')->with('status', 'Data User berhasil ditambahkan');

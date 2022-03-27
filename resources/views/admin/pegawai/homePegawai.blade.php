@@ -1,4 +1,6 @@
-@extends('layouts.admin') @section('header')
+@extends('layouts.admin')
+
+@section('header')
 <h3 class="page-title">Users <small>List Users</small></h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -47,52 +49,28 @@
                             <td>
                                 <div class="row justify-content-center">
                                     <div class="col-sm-6">
-                                        <form
-                                            action="{{ route('users.update', $users->id) }}"
-                                            method="POST"
-                                        >
+                                        <form action="{{ route('users.update', $users->id) }}" method="POST">
                                             @method('PUT') @csrf
 
-                                            <button
-                                                type="submit"
-                                                href="#"
-                                                style="width: 100%"
-                                                class="btn btn-primary"
-                                            >
+                                            <button type="submit" href="#" style="width: 100%" class="btn btn-primary">
                                                 Reset Password
                                             </button>
                                         </form>
                                     </div>
                                     <div class="col-sm-6">
                                         @if($users->suspend == 0)
-                                        <form
-                                            action="{{ route('users.destroy', $users->id) }}"
-                                            method="POST"
-                                        >
+                                        <form action="{{ route('users.destroy', $users->id) }}" method="POST">
                                             @method('DELETE') @csrf
 
-                                            <button
-                                                type="submit"
-                                                href="#"
-                                                style="width: 100%"
-                                                class="btn btn-danger"
-                                            >
+                                            <button type="submit" href="#" style="width: 100%" class="btn btn-danger">
                                                 Suspend
                                             </button>
                                         </form>
                                         @else
-                                        <form
-                                            action="{{ route('users.destroy', $users->id) }}"
-                                            method="POST"
-                                        >
+                                        <form action="{{ route('users.destroy', $users->id) }}" method="POST">
                                             @method('DELETE') @csrf
 
-                                            <button
-                                                type="submit"
-                                                href="#"
-                                                style="width: 100%"
-                                                class="btn btn-success"
-                                            >
+                                            <button type="submit" href="#" style="width: 100%" class="btn btn-success">
                                                 Unsuspend
                                             </button>
                                         </form>
@@ -115,12 +93,8 @@
                     @endif
                 </table>
                 <div class="add-pegawai">
-                    <a
-                        href="/mgpegawai-add"
-                        role="button"
-                        class="btn btn-lg btn-primary"
-                        ><i class="bi bi-plus"></i> Tambah Pegawai</a
-                    >
+                    <a href="/mgpegawai-add" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
+                        Tambah Pegawai</a>
                 </div>
             </div>
         </div>
