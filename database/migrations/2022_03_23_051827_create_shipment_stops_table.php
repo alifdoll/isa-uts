@@ -16,7 +16,8 @@ class CreateShipmentStopsTable extends Migration
         Schema::create('shipment_stops', function (Blueprint $table) {
             $table->unsignedBigInteger('shipment_id');
             $table->foreign('shipment_id')->references('id')->on('shipments');
-            $table->integer('sequence')->unique();
+            $table->integer('sequence');
+            $table->index('sequence');
             $table->string('current_location');
             $table->timestamps();
         });
