@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
-
+use App\Order;
+use App\Shipment;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TransactionController extends Controller
 {
@@ -23,12 +25,14 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+
+        $order = Order::find($id);
+        
         $p = User::where('roles', 'courier')->get();
-        // return view('admin.pegawai.homePegawai', compact('p'));
-        // return view('admin', compact('p'));
-        return view('admin.shipment.addShipment', compact('p'));
+        
+        return view('admin.shipment.addShipment', compact('p','order'));
     }
 
     /**
@@ -39,7 +43,17 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+        $data = new Shipment();
+        $data->order_id = $request->get('order_id');
+        $data->pickup_address = $request->get('pickup_address');
+        $data->destination_address = $request->get('destination');
+        $data->courier = $request->get('courier');
+        $data->shipment_date = $request->get('shipment_date');
+
+        $data->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
     }
 
     /**

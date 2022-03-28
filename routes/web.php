@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/product/compare', 'ProductController@compare')->name('product.compare');
 
-    Route::get('/conq', 'HomeController@homeAdmin');
+    Route::get('/conq', 'HomeController@index')->name('homeAdmin');
 
     Route::get('/checkout', 'ProductController@checkout');
 
@@ -49,9 +49,10 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/mgpegawai', 'Homecontroller@user')->name('admin.user.homeUser');
 
     Route::resource('/users', 'UserController');
+    Route::resource('/transactions', 'TransactionController');
 
     Route::get('/mgpegawai-add', 'UserController@create');
-    Route::get('/mgshipment-add', 'TransactionController@create');
+    Route::get('/mgshipment-add/{id}', 'TransactionController@create');
 
     Route::get('/mgpegawai-edit/{id}', 'OrderController@confirmOrder');
 

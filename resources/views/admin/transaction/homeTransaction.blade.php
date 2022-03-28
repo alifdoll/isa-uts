@@ -55,7 +55,7 @@
                             <td>
                                 <div class="row justify-content-center">
                                     <div class="add-pegawai">
-                                        <a href="/mgshipment-add" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
+                                        <a href="/mgshipment-add/{{ $o->id }}" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
                                             Tambah Pegawai</a>
                                     </div>
                                     <div class="col-sm-5">

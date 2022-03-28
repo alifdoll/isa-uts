@@ -37,9 +37,9 @@
                         <tbody>
                             @foreach ($shipment as $s)
                                 <tr>
-                                    <td>{{ $s->id }}</td>
-                                    <td>{{ $s->order->user->name }}</td>
-                                    <td>{{ $s->order->id }}</td>
+                                    <td>{{ $s->shipment_id }}</td>
+                                    <td>{{ $s->name }}</td>
+                                    <td>{{ $s->order_id }}</td>
                                     <td>
                                         <div>
                                             <a role="button" style="width: 80%;" class="btn btn-primary"></i>Details</a>

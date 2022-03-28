@@ -31,14 +31,14 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-sm-12">
-                <h1 class="mb-5">Tambah User</h1>
+                <h1 class="mb-5">Tambah Shipment</h1>
                 <div class="row text-left">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <form method="POST" action="{{ route('users.store') }}">
+                        <form method="POST" action="{{ route('transactions.store') }}">
                             @csrf
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Order id</label>
-                                <input type="text" value="" class="form-control" name="order_id">
+                                <input type="text" readonly value="{{ $order->id }}" class="form-control" name="order_id">
 
                             </div>
 
@@ -61,7 +61,7 @@
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Courier</label>
                                 
-                                <select class="form-select" aria-label="Default select example" name="brand_id">
+                                <select class="form-select" aria-label="Default select example" name="courier">
     
                                     <option selected>Open this select menu</option>
                                     @foreach ($p as $user)

@@ -20,4 +20,6 @@ class Shipment extends Model
     {
         return $this->belongsTo('App\Order');
     }
+
+    public $timestamps = false;
 }
