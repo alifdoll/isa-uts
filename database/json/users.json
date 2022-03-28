@@ -79,9 +79,9 @@
         "password": "$2y$10$JtgU\/Hd9UpW4pUQUMJxF4ueeE.v.fpqyJwdQbVx928pFCEisI5vfW",
         "phone": null,
         "roles": "courier",
-        "suspend": 1,
+        "suspend": 0,
         "created_at": "2021-12-07 16:58:06",
-        "updated_at": "2021-12-07 17:11:25"
+        "updated_at": "2022-03-28 03:46:09"
     },
     {
         "id": 10,
@@ -130,5 +130,17 @@
         "suspend": 1,
         "created_at": "2021-12-08 05:12:13",
         "updated_at": "2021-12-08 05:24:20"
+    },
+    {
+        "id": 15,
+        "username": "jimi_hendra",
+        "name": "Jimi Hendrix",
+        "email": "jimi@gmail.com",
+        "password": "$2y$10$queqK7Q7eqcdow6xEGDOq.qqE8XWylaWty7NVS.3reo9v9saC7Tb6",
+        "phone": null,
+        "roles": "courier",
+        "suspend": 0,
+        "created_at": "2022-03-28 03:38:38",
+        "updated_at": "2022-03-28 03:38:38"
     }
 ]
