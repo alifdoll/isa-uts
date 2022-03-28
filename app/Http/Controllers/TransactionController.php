@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
+
 
 class TransactionController extends Controller
 {
@@ -23,7 +25,10 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $p = User::where('roles', 'courier')->get();
+        // return view('admin.pegawai.homePegawai', compact('p'));
+        // return view('admin', compact('p'));
+        return view('admin.shipment.addShipment', compact('p'));
     }
 
     /**

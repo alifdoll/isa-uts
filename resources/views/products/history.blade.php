@@ -139,7 +139,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($order as $o)
+                                    @foreach ($order as $index => $o)
+                                    {{-- {{ $tes = 0 }} --}}
+                                    {{-- {{ $tes = $shipment[0][0]->id }} --}}
+                                    
                                         <tr class="table-td-content">
                                             <td scope="row">{{ $o->id }}</td>
 
@@ -158,11 +161,13 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @foreach ($shipment as $s)
-                                                    <a role="button" class="btn btn-primary"
-                                                        onclick="shipmentDetail('{{ $s[0]->id }}')" data-toggle="modal"
-                                                        data-target="#modal2" href="#modal"></i>Details</a>
-                                                @endforeach
+                                                {{-- {{ $shipment[1][0]->id +1 }} --}}
+                                                {{-- @foreach ($shipment as $s) --}}
+                                                <a role="button" class="btn btn-primary"
+                                                onclick="shipmentDetail('{{ $shipment[$index][0]->id }}')" data-toggle="modal"
+                                                data-target="#modal2" href="#modal"></i>Details</a>
+                                                {{-- @endforeach --}}
+                                                {{-- @break --}}
                                             </td>
                                         </tr>
                                     @endforeach

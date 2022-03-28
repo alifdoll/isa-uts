@@ -240,7 +240,7 @@ class ProductController extends Controller
     {
         $order = Order::where('user_id', Auth::user()->id)->get();
         $shipment=[];
-        $shipment_stop=[];
+        // $shipment_stop=[];
         foreach($order as $o)
         {
             $shipment[] = Shipment::where('order_id', $o->id)->get();
@@ -251,6 +251,7 @@ class ProductController extends Controller
         // }
         // $order = Order::find(1);
         // return dd($order[0]->details);
+        // dd($shipment);
         return view('products.history', compact('order','shipment'));
         // dd($shipment);
     }

@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/users', 'UserController');
 
     Route::get('/mgpegawai-add', 'UserController@create');
+    Route::get('/mgshipment-add', 'TransactionController@create');
 
     Route::get('/mgpegawai-edit/{id}', 'OrderController@confirmOrder');
 

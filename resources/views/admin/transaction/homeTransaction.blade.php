@@ -54,25 +54,10 @@
 
                             <td>
                                 <div class="row justify-content-center">
-                                    @if(Auth::user()->roles == "administrator")
-                                    <div class="col-sm-5">
-                                        @if ($o->paid_at == null)
-                                        <a href="/mgpegawai-edit/{{ $o->id }}" role="button" style="width: 80%;"
-                                            class="btn btn-primary"></i>Confirm</a>
-                                        @else
-                                        <a role="button" class="btn  btn-success" style="width: 80%;"></i>Confirmed</a>
-                                        @endif
+                                    <div class="add-pegawai">
+                                        <a href="/mgshipment-add" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
+                                            Tambah Pegawai</a>
                                     </div>
-                                    @else
-                                    <div class="col-sm-12">
-                                        @if ($o->paid_at == null)
-                                        <a href="/mgpegawai-edit/{{ $o->id }}" role="button" style="width: 80%;"
-                                            class="btn btn-primary"></i>Confirm</a>
-                                        @else
-                                        <a role="button" class="btn  btn-success" style="width: 80%;"></i>Confirmed</a>
-                                        @endif
-                                    </div>
-                                    @endif
                                     <div class="col-sm-5">
                                         {{-- @can('delete-permission', $o) --}}
                                         @if (Auth::user()->roles == 'administrator')
