@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\OrderDetail;
+use App\Shipment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -166,11 +167,9 @@ class OrderController extends Controller
         return view('admin.transaction.detail', compact('order'));
         // return dd($order);
     }
+
     public function history(Request $request)
     {
-
-
-
         $id = $request->get('id');
         $order = Order::select(
             "orders.id as order_id",
@@ -193,5 +192,11 @@ class OrderController extends Controller
         return response()->json(array(
             "msg" => $order
         ), 200);
+    }
+
+    public function detailShipment($id)
+    {
+        $shipment = Shipment::where('courier', $id)->get();
+        return view('admin.shipment.detail', compact('shipment'));
     }
 }

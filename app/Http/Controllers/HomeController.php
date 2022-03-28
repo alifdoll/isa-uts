@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Order;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Shipment;
 use App\Users;
 use Exception;
 use Illuminate\Auth\Access\Gate;
@@ -31,8 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        // return dd($this->authorize('login'));
         if (!Auth::check()) {
             $product = Product::All();
             return view('home', compact('product'));
@@ -45,6 +45,19 @@ class HomeController extends Controller
                 return view('home', compact('product'));
             }
         }
+    }
+
+    public function shipments()
+    {
+        $courier_id = Auth::user()->id;
+        $shipment = Shipment::where('courier', $courier_id)->get();
+        return view('admin.shipment.homeShipment', compact('shipment'));
+    }
+
+    public function shipmentsAdmin()
+    {
+        $couriers = User::where('roles', 'courier')->get();
+        return view('admin.shipment.shipmentAdmin', compact('couriers'));
     }
 
     public function detail($id)

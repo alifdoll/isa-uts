@@ -26,10 +26,6 @@ Route::get('/product/{id}', 'HomeController@detail');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-// Route::get('/', function () {
-//     return view('layouts.admin');
-// });
-
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/cart', 'ProductController@cart');
@@ -107,4 +103,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/history/detail2', 'ProductController@shipmentHistory')->name('product.shipmentHistory');
 
     // End Order
+
+    Route::get('/shipment', 'HomeController@shipments');
+    Route::get('/track', 'HomeController@shipmentsAdmin');
+    Route::get('/track/{id}', 'OrderController@detailShipment');
 });
