@@ -219,19 +219,7 @@ class OrderController extends Controller
     // DENDY
     public function createLoc($id)
     {
-
-        $shipment = Shipment_Stop::select(
-            "shipment_id",
-            "sequence",
-            "current_location"
-        )
-            ->where('shipment_id', $id)
-            ->get();
-        if (count($shipment) == 0) {
-            return view('courier.addLocation', compact('id'));
-        } else {
-            return view('courier.addLocation', compact('shipment'));
-        }
+        return view('courier.addLocation', compact('id'));
     }
     public function storeLoc(Request $request)
     {
