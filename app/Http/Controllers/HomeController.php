@@ -38,11 +38,15 @@ class HomeController extends Controller
             return view('home', compact('product'));
         } else {
             $user = Auth::user();
-            if ($user->roles == 'administrator' || $user->roles == 'staff' || $user->roles == 'courier') {
-                return $this->user();
-            } else if ($user->roles == 'customer') {
-                $product = Product::All();
-                return view('home', compact('product'));
+            $product = Product::All();
+            if ($user->roles == 'administrator') {
+                return $this->adminView();
+            } else if ($user->roles == 'sender') {
+                $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
+                return view('sender.home', compact('shipment'));
+            } else {
+                $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
+                return view('courier.home', compact('shipment'));
             }
         }
     }
@@ -66,11 +70,10 @@ class HomeController extends Controller
         return view('products.detailproduct', compact('p'));
     }
 
-    public function user()
+    public function adminView()
     {
-        $p = User::where('roles', 'courier')->get();
-        // return view('admin.pegawai.homePegawai', compact('p'));
-        return view('admin', compact('p'));
+        $p = User::all();
+        return view('admin.home', compact('p'));
     }
 
     public function editUser($id)

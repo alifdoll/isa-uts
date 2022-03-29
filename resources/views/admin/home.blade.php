@@ -72,13 +72,14 @@
 
                 </tbody>
             </table>
+            <div class="add-pegawai">
+                <a href="/mgpegawai-add" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
+                    Tambah Pegawai</a>
+            </div>
         </div>
     </div>
 </div>
-<div class="add-pegawai">
-    <a href="/mgpegawai-add" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
-        Tambah Pegawai</a>
-</div>
+
 @endsection
 
 @section('javascript')

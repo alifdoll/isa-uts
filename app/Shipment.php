@@ -16,10 +16,20 @@ class Shipment extends Model
         return $this->hasMany('App\Shipment_Stop');
     }
 
-    public function order()
+    public function sender()
     {
-        return $this->belongsTo('App\Order');
+        return $this->belongsTo('App\User');
     }
 
-    public $timestamps = false;
+    public function courier()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    // public function order()
+    // {
+    //     return $this->belongsTo('App\Order');
+    // }
+
+    // public $timestamps = false;
 }
