@@ -25,7 +25,7 @@
                     @foreach ($shipment as $s)
                     <tr>
                         <td scope="row">{{ $s->id }}</td>
-                        <td>{{ $s->courier->name }}</td>
+                        <td>{{ $s->sender->name }}</td>
                         <td>{{ $s->item }}</td>
                         <td>{{ $s->pickup_address }}</td>
                         <td>{{ $s->destination_address }}</td>
@@ -33,10 +33,11 @@
                         <td>
                             @if($s->shipped == 0)
                             <div class="add-pegawai">
-                                <a href="/locDetail/{{ $s->id }}" role="button" style="width: 100%" class="btn btn-lg btn-danger"><i class="bi bi-plus"></i>
+                                <a href="/locDetail/{{ $s->id }}" role="button" style="width: 100%"
+                                    class="btn btn-lg btn-danger"><i class="bi bi-plus"></i>
                                     Add Location</a>
                             </div>
-                               
+
                             @else
                             <button type="submit" href="#" style="width: 100%" class="btn btn-success">
                                 SHIPPED

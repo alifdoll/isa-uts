@@ -8,7 +8,7 @@
                 <h1 class="mb-5">Tambah Shipment</h1>
                 <div class="row text-left">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <form method="POST" action="{{ route('transactions.store') }}">
+                        <form method="POST" action="{{ route('shipment.store') }}">
                             @csrf
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Item Name</label>

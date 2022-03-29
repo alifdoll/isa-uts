@@ -2,44 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
-use App\Order;
 use App\Shipment;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Shipment_Stop;
+use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+class ShipmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($id)
-    {
-
-        $order = Order::find($id);
-
-        $p = User::where('roles', 'courier')->get();
-
-        return view('admin.shipment.addShipment', compact('p', 'order'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $pricePerKm = 5000;
@@ -57,6 +26,35 @@ class TransactionController extends Controller
         return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
     }
 
+
+
+    public function shipped(Shipment $shipment)
+    {
+        $shipment->shipped = 1;
+        $shipment->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
+    }
+
+    public function storeLoc(Request $request)
+    {
+        $stops = Shipment_Stop::where('shipment_id', $request->get('id'))->get();
+        $data = new Shipment_Stop();
+        $data->shipment_id = $request->get('shipment_id');
+
+        $data->current_location = $request->get('current_location');
+        if (count($stops) == 0) {
+            $data->sequence = 1;
+        }
+        $data->sequence = count($stops) + 1;
+        $data->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+    }
+
+    public function getTrack($id)
+    {
+        $stops = Shipment::where('id', $id)->get();
+        return view("sender.track", compact('stops'));
+    }
     /**
      * Display the specified resource.
      *

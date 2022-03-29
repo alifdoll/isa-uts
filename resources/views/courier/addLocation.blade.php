@@ -40,14 +40,6 @@
                                 <input type="hidden" value="{{ $id }}" class="form-control" name="shipment_id">
                             </div>
 
-
-                            {{-- <div class="mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Sequence</label>
-                                <input type="text" readonly class="form-control" name="sequence"
-                                    value="{{ count($shipment)+1 }}">
-
-                            </div> --}}
-
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Current Location</label>
                                 <input type="text" class="form-control" name="current_location" id="exampleInputEmail1"

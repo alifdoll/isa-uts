@@ -51,25 +51,6 @@ class HomeController extends Controller
         }
     }
 
-    public function shipments()
-    {
-        $courier_id = Auth::user()->id;
-        $shipment = Shipment::where('courier', $courier_id)->get();
-        return view('admin.shipment.homeShipment', compact('shipment'));
-    }
-
-    public function shipmentsAdmin()
-    {
-        $couriers = User::where('roles', 'courier')->get();
-        return view('admin.shipment.shipmentAdmin', compact('couriers'));
-    }
-
-    public function detail($id)
-    {
-        $p = Product::find($id);
-        return view('products.detailproduct', compact('p'));
-    }
-
     public function adminView()
     {
         $p = User::all();
@@ -80,50 +61,16 @@ class HomeController extends Controller
     {
         $p = User::find($id);
         return view('admin.pegawai.editPegawai', compact('p'));
-        // return dd($p);
-    }
-
-    public function mgproduct()
-    {
-        $user = Auth::user();
-        if ($user->roles == 'administrator' || $user->roles == 'staff') {
-            $product = Product::All();
-            return view('admin.product.homeProduct', compact('product'));
-        }
-    }
-
-    public function mgproductAdd()
-    {
-        $p = Product::all();
-        $b = Brand::all();
-        $c = Category::all();
-        return view('admin.product.tambahProduct', compact('p', 'b', 'c'));
-    }
-
-    public function detailAdminProduct($id)
-    {
-        $p = Product::find($id);
-        return view('admin.product.productDetail', compact('p'));
-        // return dd($p);
-    }
-
-    public function editProduct($id)
-    {
-        $p = Product::find($id);
-        $c = Category::all();
-        $b = Brand::all();
-        return view('admin.product.editProduct', compact('p', 'c', 'b'));
-        // return dd($p);
-    }
-
-    public function homeAdmin()
-    {
-        return view('homeAdmin');
     }
 
     public function sendItemView()
     {
         $courier = User::where('roles', 'courier')->get();
         return view('sender.addShipment', compact('courier'));
+    }
+
+    public function createLoc($id)
+    {
+        return view('courier.addLocation', compact('id'));
     }
 }

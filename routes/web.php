@@ -18,99 +18,20 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::resource('/products', 'ProductController');
-
-
-Route::get('/product/{id}', 'HomeController@detail');
-
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/cart', 'ProductController@cart');
-
-    Route::get('/compare', 'ProductController@compareView');
-
-    Route::post('/add-to-cart/{id}', 'ProductController@addToCart');
-
-    Route::get('/remove-from-cart/{id}', 'ProductController@removeFromCart');
-
-    Route::post('/product/compare', 'ProductController@compare')->name('product.compare');
-
-    Route::get('/conq', 'HomeController@index')->name('homeAdmin');
-
-    Route::get('/checkout', 'ProductController@checkout');
-
-    Route::get('/history', 'ProductController@history');
-
     // User
-    Route::get('/mgpegawai', 'Homecontroller@user')->name('admin.user.homeUser');
-    // Route::get('/mgpegawai', 'Homecontroller@user')->name('admin.user.homeUser');
-
     Route::resource('/users', 'UserController');
     Route::resource('/transactions', 'TransactionController');
-
+    Route::resource('/shipment', 'ShipmentController');
     Route::get('/mgpegawai-add', 'UserController@create');
-    Route::get('/mgshipment-add/{id}', 'TransactionController@create');
-
-    Route::get('/mgpegawai-edit/{id}', 'OrderController@confirmOrder');
-
     // End User
 
-    // Product
+    Route::get('/locDetail-shipped/{id}', 'ShipmentController@shipped')->name("shipped");
+    Route::get('/locDetail-add', 'ShipmentController@storeLoc')->name("addLocation");
+    Route::get('/stops/{id}', 'ShipmentController@getTrack');
 
-    Route::get('/mgproduct-add', 'Homecontroller@mgproductAdd');
-
-    Route::get('/mgproduct', 'Homecontroller@mgproduct')->name('admin.product.homeProduct');
-
-    Route::get('/mgproduct-detail/{id}', 'Homecontroller@detailAdminProduct');
-
-    Route::get('/mgproduct-edit/{id}', 'Homecontroller@editProduct');
-
-    Route::get('/order', 'OrderController@createOrder')->name('product.order');
-
-    // End Product
-
-    // Category
-    Route::get('/mgcate', 'CategoryController@index')->name('admin.cate.homeCate');
-
-    Route::get('/mgcate-add', 'CategoryController@create');
-
-    Route::get('/mgcate-edit/{id}', 'CategoryController@edit');
-
-    Route::resource('/cates', 'CategoryController');
-
-    // End Category
-
-    // Brand
-
-    Route::get('/mgbrand', 'BrandController@index')->name('admin.brand.homeBrand');
-
-
-    Route::get('/mgbrand-add', 'BrandController@create');
-
-    Route::resource('/brands', 'BrandController');
-
-    Route::get('/mgbrand-edit/{id}', 'BrandController@edit');
-
-    // End Brand
-
-    // Order
-    Route::resource('/orders', 'OrderController');
-    Route::get('/mgorder', 'OrderController@index')->name('admin.transaction.homeTransaction');
-    Route::get('/detailtr/{id}', 'OrderController@detailsTr')->name('admin.transaction.detail');
-    Route::get('/result', 'OrderController@result')->name("result");
-    Route::post('/history/detail', 'OrderController@history')->name('order.history');
-    Route::post('/history/detail2', 'ProductController@shipmentHistory')->name('product.shipmentHistory');
-
-    // End Order
-    // Route::resource('/shipment', 'BrandController');
-    Route::get('/locDetail/{id}', 'OrderController@createLoc');
-    Route::get('/locDetail-shipped/{id}', 'OrderController@shipped')->name("shipped");
-    Route::get('/locDetail-add', 'OrderController@storeLoc')->name("addLocation");
-    Route::get('/shipment', 'HomeController@shipments');
-    Route::get('/track', 'HomeController@shipmentsAdmin');
-    Route::get('/track/{id}', 'OrderController@detailShipment');
-    Route::get('/stops/{id}', 'OrderController@getTrack');
+    Route::get('/locDetail/{id}', 'HomeController@createLoc');
     Route::get('/send', 'HomeController@sendItemView');
 });

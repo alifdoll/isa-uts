@@ -61,51 +61,18 @@
 
 
             @if (Auth::user()->roles == 'administrator')
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePegawai"
-                        aria-expanded="true" aria-controls="collapsePegawai">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Pegawai</span>
-                    </a>
-                    <div id="collapsePegawai" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="/mgpegawai-add">Tambah Pegawai</a>
-                        </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePegawai"
+                    aria-expanded="true" aria-controls="collapsePegawai">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pegawai</span>
+                </a>
+                <div id="collapsePegawai" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mgpegawai-add">Tambah Pegawai</a>
                     </div>
-                </li>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Barang</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Barang:</h6>
-                            <a class="collapse-item" href="/mgorder">Kirim Barang</a>
-                            <a class="collapse-item" href="/track">Track Barang</a>
-                        </div>
-                    </div>
-                </li>
-            @else
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKurir"
-                        aria-expanded="true" aria-controls="collapseKurir">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Barang</span>
-                    </a>
-                    <div id="collapseKurir" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Barang:</h6>
-                            <a class="collapse-item" href="/shipment">Pengiriman</a>
-                        </div>
-                    </div>
-                </li>
+                </div>
+            </li>
             @endif
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -117,11 +84,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Report:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Create Report</a>
                     </div>
                 </div>
             </li>
