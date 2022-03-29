@@ -68,7 +68,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body" id="track-content"></div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
             </div>
@@ -87,7 +87,7 @@
                  id: id,
              },
              success: function(data) {
-                 $(".modal-body").html(data);
+                 $("#track-content").html(data);
              }
          })
      }
