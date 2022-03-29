@@ -198,26 +198,15 @@ class OrderController extends Controller
     {
         $shipment = Shipment::select(
             "shipments.id as shipment_id",
-            "shipments.order_id as order_id",
             "shipments.pickup_address as pickup_address",
             "shipments.destination_address as destination_address",
             "shipments.shipment_date as shipment_date",
-            "shipments.courier as courier",
-            "o.id as order2_id",
-            "o.user_id as user_id",
-            "o.paid_at as paid_at",
-            "u.id as user_id",
-            "u.username as username",
-            "u.name as name",
-
-
+            "shipments.courier_id as courier"
         )
-            ->join("orders as o", "o.id", "=", "shipments.order_id")
-            ->join("users as u", "u.id", "=", "o.user_id")
-            ->where('shipments.courier', $id)
+            ->where('shipments.courier_id', $id)
             ->get();
         // $shipment = Shipment::where('courier', $id)->get();
-        // dd($shipment);
+        // return dd($shipment);
         return view('admin.shipment.detail', compact('shipment'));
     }
 }
