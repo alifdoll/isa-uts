@@ -120,4 +120,10 @@ class HomeController extends Controller
     {
         return view('homeAdmin');
     }
+
+    public function sendItemView()
+    {
+        $courier = User::where('roles', 'courier')->get();
+        return view('sender.addShipment', compact('courier'));
+    }
 }

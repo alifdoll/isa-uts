@@ -112,4 +112,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/track', 'HomeController@shipmentsAdmin');
     Route::get('/track/{id}', 'OrderController@detailShipment');
     Route::get('/stops/{id}', 'OrderController@getTrack');
+    Route::get('/send', 'HomeController@sendItemView');
 });

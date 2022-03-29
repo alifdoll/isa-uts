@@ -11,12 +11,10 @@
                         <form method="POST" action="{{ route('transactions.store') }}">
                             @csrf
                             <div class="mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Order id</label>
-                                <input type="text" readonly value="{{ $order->id }}" class="form-control"
-                                    name="order_id">
+                                <label for="exampleInputEmail1" class="form-label">Item Name</label>
+                                <input type="text" class="form-control" name="item">
 
                             </div>
-
 
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Pickup Address</label>
@@ -26,11 +24,12 @@
 
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Destination address</label>
-                                <input type="text" class="form-control" name="destination" id="exampleInputEmail1"
-                                    value="" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone
-                                    else.</div>
+                                <input type="text" class="form-control" name="destination_address">
+                            </div>
 
+                            <div class="mb-4">
+                                <label for="exampleInputEmail1" class="form-label">Distance</label>
+                                <input type="number" class="form-control" name="distance" min="1">
                             </div>
 
                             <div class="mb-4">
@@ -39,8 +38,8 @@
                                 <select class="form-select" aria-label="Default select example" name="courier">
 
                                     <option selected>Open this select menu</option>
-                                    @foreach ($p as $user)
-                                    <option value="{{ $user->id }}">{{ $user->id }}. {{ $user->name }}</option>
+                                    @foreach ($courier as $i => $c)
+                                    <option value="{{ $c->id }}">{{ $i+1 }}. {{ $c->name }}</option>
                                     @endforeach
 
 
@@ -53,10 +52,9 @@
                                 <label for="exampleInputPassword1" class="form-label">Shipment Date</label>
                                 <input type="date" class="form-control" name="shipment_date" value=""
                                     id="exampleInputPassword1">
-
                             </div>
 
-
+                            <input type="hidden" name="sender" value="{{ Auth::user()->id }}" />
 
                             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
                         </form>

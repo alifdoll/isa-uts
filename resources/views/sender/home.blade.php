@@ -48,7 +48,7 @@
                 </tbody>
             </table>
             <div class="add-pegawai">
-                <a href="/" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
+                <a href="/send" role="button" class="btn btn-lg btn-primary"><i class="bi bi-plus"></i>
                     Kirim Barang</a>
             </div>
         </div>

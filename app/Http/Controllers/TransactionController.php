@@ -17,7 +17,6 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -29,10 +28,10 @@ class TransactionController extends Controller
     {
 
         $order = Order::find($id);
-        
+
         $p = User::where('roles', 'courier')->get();
-        
-        return view('admin.shipment.addShipment', compact('p','order'));
+
+        return view('admin.shipment.addShipment', compact('p', 'order'));
     }
 
     /**
@@ -43,14 +42,16 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
+        $pricePerKm = 5000;
         $data = new Shipment();
-        $data->order_id = $request->get('order_id');
         $data->pickup_address = $request->get('pickup_address');
-        $data->destination_address = $request->get('destination');
-        $data->courier = $request->get('courier');
+        $data->destination_address = $request->get('destination_address');
+        $data->courier_id = $request->get('courier');
+        $data->sender_id = $request->get('sender');
         $data->shipment_date = $request->get('shipment_date');
+        $data->item = $request->get('item');
+        $data->distance = $request->get('distance');
+        $data->price = $pricePerKm * $request->get('distance');
 
         $data->save();
         return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
