@@ -33,21 +33,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (!Auth::check()) {
-            $product = Product::All();
-            return view('home', compact('product'));
+        $user = Auth::user();
+        if ($user->roles == 'administrator') {
+            return $this->adminView();
+        } else if ($user->roles == 'sender') {
+            $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
+            return view('sender.home', compact('shipment'));
         } else {
-            $user = Auth::user();
-            $product = Product::All();
-            if ($user->roles == 'administrator') {
-                return $this->adminView();
-            } else if ($user->roles == 'sender') {
-                $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
-                return view('sender.home', compact('shipment'));
-            } else {
-                $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
-                return view('courier.home', compact('shipment'));
-            }
+            $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
+            return view('courier.home', compact('shipment'));
         }
     }
 
