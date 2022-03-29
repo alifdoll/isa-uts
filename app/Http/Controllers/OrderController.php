@@ -223,28 +223,27 @@ class OrderController extends Controller
         $shipment = Shipment_Stop::select(
             "shipment_id",
             "sequence",
-            "current_location",
-
+            "current_location"
         )
             ->where('shipment_id', $id)
             ->get();
-        // $shipment = Shipment::where('courier', $id)->get();
-        // return dd($shipment);
-        return view('courier.addLocation', compact('shipment'));
-
-        // $order = Order::find($id);
-
-        // $p = User::where('roles', 'courier')->get();
-
-        // return view('admin.shipment.addShipment', compact('p','order'));
+        if (count($shipment) == 0) {
+            return view('courier.addLocation', compact('id'));
+        } else {
+            return view('courier.addLocation', compact('shipment'));
+        }
     }
     public function storeLoc(Request $request)
     {
+        $stops = Shipment_Stop::where('shipment_id', $request->get('id'))->get();
         $data = new Shipment_Stop();
         $data->shipment_id = $request->get('shipment_id');
-        $data->sequence = $request->get('sequence');
-        $data->current_location = $request->get('current_location');
 
+        $data->current_location = $request->get('current_location');
+        if (count($stops) == 0) {
+            $data->sequence = 1;
+        }
+        $data->sequence = count($stops) + 1;
         $data->save();
         return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
     }
@@ -260,7 +259,6 @@ class OrderController extends Controller
     public function getTrack($id)
     {
         $stops = Shipment::where('id', $id)->get();
-        // return dd($shipment[0]->details);
         return view("sender.track", compact('stops'));
     }
 }

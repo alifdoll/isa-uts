@@ -37,35 +37,28 @@
                         <form method="GET" action="{{ route('addLocation') }}">
                             @csrf
                             <div class="mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Order id</label>
-                                <input type="text" readonly value="{{ $shipment[0]->shipment_id }}" class="form-control" name="shipment_id">
-
+                                <input type="hidden" value="{{ $id }}" class="form-control" name="shipment_id">
                             </div>
 
 
-                            <div class="mb-4">
+                            {{-- <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Sequence</label>
-                                <input type="text" readonly class="form-control" name="sequence" value="{{ count($shipment)+1 }}">
+                                <input type="text" readonly class="form-control" name="sequence"
+                                    value="{{ count($shipment)+1 }}">
 
-                            </div>
+                            </div> --}}
 
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Current Location</label>
-                                <input type="text" class="form-control" name="current_location" id="exampleInputEmail1" value=""
-                                    aria-describedby="emailHelp">
-                                
-
+                                <input type="text" class="form-control" name="current_location" id="exampleInputEmail1"
+                                    value="" aria-describedby="emailHelp">
                             </div>
-
 
                             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
                         </form>
                         <br>
-                        <form method="POST" action="{{ route('orders.update', $shipment[0]->shipment_id, $shipment[0]->shipment_id) }}">
+                        <form method="POST" action="{{ route('orders.update', $id) }}">
                             @csrf @method("PUT")
-                            
-
-
                             <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">Shipped</button>
                         </form>
                     </div>
