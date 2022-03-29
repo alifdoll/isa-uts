@@ -6,7 +6,7 @@
         "email": "alifianfajarpratama@gmail.com",
         "password": "$2y$10$50\/xjmKVFhWMoWzzD2.sE.bLh0Bzjfv7VLblbjrLowz0jwN5FMKVe",
         "phone": "082334975575",
-        "roles": "customer",
+        "roles": "sender",
         "suspend": 0,
         "created_at": "2021-11-28 16:11:25",
         "updated_at": "2022-03-23 08:27:16"
@@ -18,7 +18,7 @@
         "email": "dendy123@gmail.com",
         "password": "$2y$10$zdm5KQ8MplOPqzLXRod3Bu1afyKDRuW3X14ctFspxaHtt5vPbFOw6",
         "phone": null,
-        "roles": "customer",
+        "roles": "sender",
         "suspend": 0,
         "created_at": "2021-11-28 16:15:48",
         "updated_at": "2021-11-28 16:15:48"
@@ -42,7 +42,7 @@
         "email": "azriel@gmail.com",
         "password": "$2y$10$81Pb9rJX.Jub7ffuU2VBUeDk2zS5.h3KIY7v.1N8cOkZfZ5z3nrXu",
         "phone": null,
-        "roles": "staff",
+        "roles": "courier",
         "suspend": 0,
         "created_at": "2021-12-02 08:17:12",
         "updated_at": "2021-12-07 04:07:27"
@@ -54,7 +54,7 @@
         "email": "tes@gmail.com",
         "password": "$2y$10$YeDCUe3EMn30whtP5ec9IuxL1Zix.TaqO\/qmo68.5O42\/b\/iB7zl6",
         "phone": null,
-        "roles": "staff",
+        "roles": "courier",
         "suspend": 1,
         "created_at": "2021-12-06 16:04:02",
         "updated_at": "2021-12-07 00:24:42"
@@ -66,7 +66,7 @@
         "email": "armando@gmail.com",
         "password": "$2y$10$BDoQN8UyxOKY9Ngdt8d58.eean.jS1ReHxeAJRoGRzzKrrNZ.1.ka",
         "phone": null,
-        "roles": "customer",
+        "roles": "sender",
         "suspend": 1,
         "created_at": "2021-12-07 15:58:25",
         "updated_at": "2021-12-07 17:30:15"
@@ -90,7 +90,7 @@
         "email": "asd@gmail.com",
         "password": "$2y$10$xfufU66ks...pHVvPR.ATuQNHDwEcBBztTF2xcthUkHBWx44lnr\/y",
         "phone": null,
-        "roles": "customer",
+        "roles": "sender",
         "suspend": 0,
         "created_at": "2021-12-07 18:08:23",
         "updated_at": "2021-12-08 02:06:20"
@@ -102,7 +102,7 @@
         "email": "ads@gmail.com",
         "password": "$2y$10$wG0gOxxRZTX.nCd\/oE\/sOO5QFYRhBrJMe2q7yZHaqc4bc8PKW\/CPO",
         "phone": null,
-        "roles": "staff",
+        "roles": "courier",
         "suspend": 0,
         "created_at": "2021-12-07 21:38:46",
         "updated_at": "2021-12-08 02:07:34"
@@ -114,7 +114,7 @@
         "email": "armandoooo@gmail.com",
         "password": "$2y$10$PMC7nNDMAhndZ5WKFdcniO.h.9fIKIfjD3o9JHda7FR56hmbW54r6",
         "phone": null,
-        "roles": "staff",
+        "roles": "courier",
         "suspend": 0,
         "created_at": "2021-12-08 03:02:43",
         "updated_at": "2021-12-08 03:02:43"
@@ -126,7 +126,7 @@
         "email": "arman@gmail.com",
         "password": "$2y$10$Cwe3bybD9ueaIB97ZPY5\/eYWt8igglW\/DmzNv\/Qx3tQHnSXlxJfJu",
         "phone": null,
-        "roles": "staff",
+        "roles": "courier",
         "suspend": 1,
         "created_at": "2021-12-08 05:12:13",
         "updated_at": "2021-12-08 05:24:20"

@@ -1,38 +1,44 @@
 [
     {
         "id": 1,
-        "order_id": 2,
+        "courier_id": 15,
+        "sender_id": 8,
+        "item": "Lenovo 500e Chromebook 2nd Gen",
         "pickup_address": "Rungkut Mejoyo Utara no 9",
         "destination_address": "Jl. Kali Asih no 10",
-        "shipment_date": "2022-04-02 08:02:53",
-        "courier": 9,
-        "shipped": 0
+        "shipment_date": "2022-03-29 06:28:26",
+        "distance": 5,
+        "price": 25000,
+        "shipped": 0,
+        "created_at": "2022-03-29 11:31:23",
+        "updated_at": "2022-03-29 11:31:23"
     },
     {
         "id": 2,
-        "order_id": 8,
-        "pickup_address": "tes",
-        "destination_address": "tes",
-        "shipment_date": "2022-03-21 15:53:15",
-        "courier": 9,
-        "shipped": 0
+        "courier_id": 9,
+        "sender_id": 1,
+        "item": "IdeaPad Slim 5 Pro (14\", Gen 6)",
+        "pickup_address": "Karang asem 9 no 8",
+        "destination_address": "Unair kampus A",
+        "shipment_date": "2022-03-29 06:28:26",
+        "distance": 2,
+        "price": 10000,
+        "shipped": 0,
+        "created_at": "2022-03-29 11:31:23",
+        "updated_at": "2022-03-29 11:31:23"
     },
     {
         "id": 3,
-        "order_id": 9,
-        "pickup_address": "asdasd",
-        "destination_address": "asdad",
-        "shipment_date": "2022-03-25 11:02:46",
-        "courier": 9,
-        "shipped": 0
-    },
-    {
-        "id": 4,
-        "order_id": 5,
-        "pickup_address": "asd",
-        "destination_address": "asd",
-        "shipment_date": "2022-03-28 07:44:05",
-        "courier": 15,
-        "shipped": 0
+        "courier_id": 9,
+        "sender_id": 1,
+        "item": "ASUS ROG STRIX G713QC-R735B6T",
+        "pickup_address": "Rungkut Tenggilis Mejoyo no 8\r\n",
+        "destination_address": "Royal Plaza",
+        "shipment_date": "2022-03-29 06:28:26",
+        "distance": 6,
+        "price": 30000,
+        "shipped": 1,
+        "created_at": "2022-03-29 11:31:23",
+        "updated_at": "2022-03-29 11:31:23"
     }
 ]

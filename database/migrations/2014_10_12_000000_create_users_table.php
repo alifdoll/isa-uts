@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
-            $table->enum('roles', ['customer', 'staff', 'administrator', 'courier'])->default('customer');
+            $table->enum('roles', ['sender', 'administrator', 'courier'])->default('sender');
             $table->boolean('suspend')->default(0);
             $table->timestamps();
         });

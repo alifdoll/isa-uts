@@ -16,17 +16,24 @@ class CreateShipmentsTable extends Migration
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('courier_id');
+            $table->foreign('courier_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('sender_id');
+            $table->foreign('sender_id')->references('id')->on('users');
+
+            $table->string('item');
 
             $table->string("pickup_address");
             $table->string("destination_address");
+
             $table->dateTime('shipment_date', 0);
 
-            $table->unsignedBigInteger('courier');
-            $table->foreign('courier')->references('id')->on('users');
+            $table->integer('distance')->default(0);
+            $table->double('price')->default(0);
 
             $table->tinyInteger('shipped')->default(0);
+            $table->timestamps();
         });
     }
 
