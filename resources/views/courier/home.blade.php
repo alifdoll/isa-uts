@@ -32,13 +32,11 @@
                         <td>{{ $s->price }}</td>
                         <td>
                             @if($s->shipped == 0)
-                            <form method="POST">
-                                @method('DELETE') @csrf
-
-                                <button type="submit" href="#" style="width: 100%" class="btn btn-danger">
-                                    Add Location
-                                </button>
-                            </form>
+                            <div class="add-pegawai">
+                                <a href="/locDetail/{{ $s->id }}" role="button" style="width: 100%" class="btn btn-lg btn-danger"><i class="bi bi-plus"></i>
+                                    Add Location</a>
+                            </div>
+                               
                             @else
                             <button type="submit" href="#" style="width: 100%" class="btn btn-success">
                                 SHIPPED

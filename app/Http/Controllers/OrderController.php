@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use App\Shipment;
+use App\Shipment_Stop;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -81,9 +82,14 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shipment $shipment, $id)
     {
-        //
+        $shipment = Shipment::find($id);
+        $shipment->shipped = 1;
+        // $shipment->courier_id = 1;
+
+        $shipment->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
     }
 
     /**
@@ -208,5 +214,46 @@ class OrderController extends Controller
         // $shipment = Shipment::where('courier', $id)->get();
         // return dd($shipment);
         return view('admin.shipment.detail', compact('shipment'));
+    }
+
+    // DENDY
+    public function createLoc($id)
+    {
+
+        $shipment = Shipment_Stop::select(
+            "shipment_id",
+            "sequence",
+            "current_location",
+            
+        )
+            ->where('shipment_id', $id)
+            ->get();
+        // $shipment = Shipment::where('courier', $id)->get();
+        // return dd($shipment);
+        return view('courier.addLocation', compact('shipment'));
+
+        // $order = Order::find($id);
+        
+        // $p = User::where('roles', 'courier')->get();
+        
+        // return view('admin.shipment.addShipment', compact('p','order'));
+    }
+    public function storeLoc(Request $request)
+    {
+        $data = new Shipment_Stop();
+        $data->shipment_id = $request->get('shipment_id');
+        $data->sequence = $request->get('sequence');
+        $data->current_location = $request->get('current_location');
+
+        $data->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+    }
+    public function shipped(Request $request, Shipment $shipment)
+    {
+        
+        $shipment->shipped = 1;
+
+        $shipment->save();
+        return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
     }
 }

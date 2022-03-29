@@ -104,7 +104,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/history/detail2', 'ProductController@shipmentHistory')->name('product.shipmentHistory');
 
     // End Order
-
+    // Route::resource('/shipment', 'BrandController');
+    Route::get('/locDetail/{id}', 'OrderController@createLoc');
+    Route::get('/locDetail-shipped/{id}', 'OrderController@shipped')->name("shipped");
+    Route::get('/locDetail-add', 'OrderController@storeLoc')->name("addLocation");
     Route::get('/shipment', 'HomeController@shipments');
     Route::get('/track', 'HomeController@shipmentsAdmin');
     Route::get('/track/{id}', 'OrderController@detailShipment');
