@@ -26,5 +26,19 @@
         "current_location": "asdasd",
         "created_at": null,
         "updated_at": null
+    },
+    {
+        "shipment_id": 4,
+        "sequence": 1,
+        "current_location": "kurir mengambil barang",
+        "created_at": "2022-03-29 12:59:41",
+        "updated_at": "2022-03-29 12:59:41"
+    },
+    {
+        "shipment_id": 5,
+        "sequence": 1,
+        "current_location": "kurir mengambil barang dari penjual",
+        "created_at": "2022-03-29 13:48:29",
+        "updated_at": "2022-03-29 13:48:29"
     }
 ]

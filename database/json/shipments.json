@@ -40,5 +40,33 @@
         "shipped": 1,
         "created_at": "2022-03-29 11:31:23",
         "updated_at": "2022-03-29 11:31:23"
+    },
+    {
+        "id": 4,
+        "courier_id": 9,
+        "sender_id": 1,
+        "item": "test alifian",
+        "pickup_address": "sidoarjo",
+        "destination_address": "kalimantan",
+        "shipment_date": "2022-04-06 00:00:00",
+        "distance": 200,
+        "price": 1000000,
+        "shipped": 1,
+        "created_at": "2022-03-29 10:23:09",
+        "updated_at": "2022-03-29 13:05:05"
+    },
+    {
+        "id": 5,
+        "courier_id": 15,
+        "sender_id": 1,
+        "item": "sepatu dendy",
+        "pickup_address": "jakarta",
+        "destination_address": "karawang",
+        "shipment_date": "2022-04-01 00:00:00",
+        "distance": 50,
+        "price": 250000,
+        "shipped": 0,
+        "created_at": "2022-03-29 13:41:53",
+        "updated_at": "2022-03-29 13:41:53"
     }
 ]
