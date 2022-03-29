@@ -32,15 +32,12 @@
                         <td>{{ $s->price }}</td>
                         <td>
                             @if($s->shipped == 0)
-                            <form method="POST">
-                                @method('DELETE') @csrf
-
-                                <button type="submit" href="#" style="width: 100%" class="btn btn-danger">
-                                    Track
-                                </button>
-                            </form>
+                            <button type="submit" style="width: 100%" class="btn btn-danger" data-toggle="modal"
+                                data-target="#logoutTrack" onclick="getLocation({{$s->id}})">
+                                Track
+                            </button>
                             @else
-                            <button type="submit" href="#" style="width: 100%" class="btn btn-success">
+                            <button type="submit" style="width: 100%" class="btn btn-success">
                                 SHIPPED
                             </button>
                             @endif
@@ -57,4 +54,42 @@
         </div>
     </div>
 </div>
+
+
+
+{{-- Modal track item --}}
+<div class="modal fade" id="logoutTrack" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Item's current location</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('javascript')
+<script>
+    function getLocation(id) {
+         $.ajax({
+             type: 'GET',
+             url: `stops/${id}`,
+             data: {
+                 id: id,
+             },
+             success: function(data) {
+                 $(".modal-body").html(data);
+             }
+         })
+     }
+</script>
 @endsection

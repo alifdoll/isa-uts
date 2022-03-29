@@ -224,7 +224,7 @@ class OrderController extends Controller
             "shipment_id",
             "sequence",
             "current_location",
-            
+
         )
             ->where('shipment_id', $id)
             ->get();
@@ -233,9 +233,9 @@ class OrderController extends Controller
         return view('courier.addLocation', compact('shipment'));
 
         // $order = Order::find($id);
-        
+
         // $p = User::where('roles', 'courier')->get();
-        
+
         // return view('admin.shipment.addShipment', compact('p','order'));
     }
     public function storeLoc(Request $request)
@@ -250,10 +250,17 @@ class OrderController extends Controller
     }
     public function shipped(Request $request, Shipment $shipment)
     {
-        
+
         $shipment->shipped = 1;
 
         $shipment->save();
         return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
+    }
+
+    public function getTrack($id)
+    {
+        $stops = Shipment::where('id', $id)->get();
+        // return dd($shipment[0]->details);
+        return view("sender.track", compact('stops'));
     }
 }
