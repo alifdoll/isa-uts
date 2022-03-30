@@ -23,16 +23,24 @@ class ShipmentController extends Controller
         $data->price = $pricePerKm * $request->get('distance');
 
         $data->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
     }
 
 
 
-    public function shipped(Shipment $shipment)
+    public function shipped(Shipment $shipment, $id)
     {
-        $shipment->shipped = 1;
-        $shipment->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
+
+        // User::where('id', $user->id)
+        //     ->update(['password' => Hash::make("password")]);
+
+        // return dd($id);
+            Shipment::where('id', $id)
+            ->update(['shipped' => 1]);
+
+        // $shipment->shipped = 1;
+        // $shipment->save();
+        return redirect()->route('home')->with('status', 'Data Product berhasil diubah');
     }
 
     public function storeLoc(Request $request)
@@ -47,7 +55,7 @@ class ShipmentController extends Controller
         }
         $data->sequence = count($stops) + 1;
         $data->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
     }
 
     public function getTrack($id)
