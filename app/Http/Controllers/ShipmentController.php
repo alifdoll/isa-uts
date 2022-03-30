@@ -38,7 +38,7 @@ class ShipmentController extends Controller
         //     ->update(['password' => Hash::make("password")]);
 
         // return dd($id);
-            Shipment::where('id', $id)
+        Shipment::where('id', $id)
             ->update(['shipped' => 1]);
 
         // $shipment->shipped = 1;
@@ -72,15 +72,10 @@ class ShipmentController extends Controller
         $user = Auth::user();
         if ($user->roles == 'sender') {
             $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
-            // return dd(gettype($shipment->toArray()));
-            // $shipment = [
-            //     "data" => $shipment
-            // ];
             $html = view('sender.report', compact('shipment'))->render();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHtml($html);
-            return $pdf->download('invoice.pdf');
-            // return view('sender.report', $shipment);
+            return $pdf->download('report_sender.pdf');
         } else {
             abort(403, 'Unauthorized Act');
         }
