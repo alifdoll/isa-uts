@@ -76,7 +76,7 @@ class ShipmentController extends Controller
             // $shipment = [
             //     "data" => $shipment
             // ];
-            $html = view('sender.report', compact('shipment'));
+            $html = view('sender.report', compact('shipment'))->render();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHtml($html);
             return $pdf->download('invoice.pdf');
