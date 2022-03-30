@@ -1,10 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <a href="/test2" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+</div>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">
-            List Barang Yang Dikirim Oleh Kurir
+            List Barang Yang Dikirim Oleh Sender
         </h6>
     </div>
     <div class="card-body">
@@ -13,7 +20,7 @@
                 <thead>
                     <tr>
                         <td scope="col">ID</td>
-                        <td scope="col">Courier</td>
+                        <td scope="col">Sender</td>
                         <td scope="col">Item Name</td>
                         <td scope="col">Pickup Address</td>
                         <td scope="col">Destination Address</td>

@@ -80,4 +80,23 @@ class ShipmentController extends Controller
             abort(403, 'Unauthorized Act');
         }
     }
+
+    public function courierReport()
+    {
+        $user = Auth::user();
+        if ($user->roles == 'courier') {
+            $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
+            // return dd(gettype($shipment->toArray()));
+            // $shipment = [
+            //     "data" => $shipment
+            // ];
+            $html = view('courier.report', compact('shipment'))->render();
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHtml($html);
+            return $pdf->download('invoice.pdf');
+            // return view('sender.report', $shipment);
+        } else {
+            abort(403, 'Unauthorized Act');
+        }
+    }
 }
