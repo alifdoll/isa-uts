@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Shipment;
 use App\Shipment_Stop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 
 class ShipmentController extends Controller
 {
@@ -55,48 +58,23 @@ class ShipmentController extends Controller
         $stops = Shipment::where('id', $id)->get();
         return view("sender.track", compact('stops'));
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function senderReport()
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user = Auth::user();
+        if ($user->roles == 'sender') {
+            $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
+            // return dd(gettype($shipment->toArray()));
+            // $shipment = [
+            //     "data" => $shipment
+            // ];
+            $html = view('sender.report', compact('shipment'));
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHtml($html);
+            return $pdf->download('invoice.pdf');
+            // return view('sender.report', $shipment);
+        } else {
+            abort(403, 'Unauthorized Act');
+        }
     }
 }

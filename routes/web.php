@@ -23,7 +23,6 @@ Route::middleware(['auth'])->group(function () {
 
     // User
     Route::resource('/users', 'UserController');
-    Route::resource('/transactions', 'TransactionController');
     Route::resource('/shipment', 'ShipmentController');
     Route::get('/mgpegawai-add', 'UserController@create');
     // End User
@@ -34,4 +33,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/locDetail/{id}', 'HomeController@createLoc');
     Route::get('/send', 'HomeController@sendItemView');
+
+
+    Route::get('/test', 'ShipmentController@senderReport');
 });
