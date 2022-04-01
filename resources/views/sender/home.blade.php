@@ -34,8 +34,8 @@
                             <tr>
                                 <td>{{ $s->courier->name }}</td>
                                 <td>{{ $s->item }}</td>
-                                <td>{{ $s->pickup_address }}</td>
-                                <td>{{ $s->destination_address }}</td>
+                                <td>{{ decrypt($s->pickup_address) }}</td>
+                                <td>{{ decrypt($s->destination_address) }}</td>
                                 <td>{{ $s->distance }}km</td>
                                 <td>Rp.{{ $s->price }}</td>
                                 <td>

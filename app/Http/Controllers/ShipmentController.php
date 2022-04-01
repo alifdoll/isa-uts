@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Crypt;
+
 
 class ShipmentController extends Controller
 {
@@ -16,14 +18,21 @@ class ShipmentController extends Controller
     {
         $pricePerKm = 5000;
         $data = new Shipment();
-        $data->pickup_address = $request->get('pickup_address');
-        $data->destination_address = $request->get('destination_address');
+        $data->pickup_address = Crypt::encrypt($request->get('pickup_address'));
+        $data->destination_address = Crypt::encrypt($request->get('destination_address'));
         $data->courier_id = $request->get('courier');
         $data->sender_id = $request->get('sender');
         $data->shipment_date = $request->get('shipment_date');
         $data->item = $request->get('item');
         $data->distance = $request->get('distance');
         $data->price = $pricePerKm * $request->get('distance');
+
+        // $tes = "tes123";
+        // $enc = Crypt::encrypt($request->get('destination_address'));
+        // $dec = Crypt::decryptString($enc);
+        
+
+        // return dd($enc.$dec);
 
         $data->save();
         return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
