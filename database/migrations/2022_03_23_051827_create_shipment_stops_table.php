@@ -18,7 +18,7 @@ class CreateShipmentStopsTable extends Migration
             $table->foreign('shipment_id')->references('id')->on('shipments');
             $table->integer('sequence');
             $table->index('sequence');
-            $table->string('current_location');
+            $table->longText('current_location');
             $table->timestamps();
         });
     }

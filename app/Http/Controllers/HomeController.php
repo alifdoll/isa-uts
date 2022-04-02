@@ -40,7 +40,6 @@ class HomeController extends Controller
             return $this->adminView();
         } else if ($user->roles == 'sender') {
             $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
-            // return dd(Crypt::decryptString($shipment[0]->pickup_address));
             return view('sender.home', compact('shipment'));
         } else {
             $shipment = Shipment::where('courier_id', Auth::user()->id)->get();

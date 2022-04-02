@@ -27,31 +27,16 @@ class ShipmentController extends Controller
         $data->distance = $request->get('distance');
         $data->price = $pricePerKm * $request->get('distance');
 
-        // $tes = "tes123";
-        // $enc = Crypt::encrypt($request->get('destination_address'));
-        // $dec = Crypt::decryptString($enc);
-        
-
-        // return dd($enc.$dec);
-
         $data->save();
         return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
     }
 
 
 
-    public function shipped(Shipment $shipment, $id)
+    public function shipped($id)
     {
-
-        // User::where('id', $user->id)
-        //     ->update(['password' => Hash::make("password")]);
-
-        // return dd($id);
         Shipment::where('id', $id)
             ->update(['shipped' => 1]);
-
-        // $shipment->shipped = 1;
-        // $shipment->save();
         return redirect()->route('home')->with('status', 'Data Product berhasil diubah');
     }
 
@@ -61,13 +46,13 @@ class ShipmentController extends Controller
         $data = new Shipment_Stop();
         $data->shipment_id = $request->get('shipment_id');
 
-        $data->current_location = $request->get('current_location');
+        $data->current_location = Crypt::encrypt($request->get('current_location'));
         if (count($stops) == 0) {
             $data->sequence = 1;
         }
         $data->sequence = count($stops) + 1;
         $data->save();
-        return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Lokasi barang berhasil ditambahkan');
     }
 
     public function getTrack($id)
@@ -95,10 +80,6 @@ class ShipmentController extends Controller
         $user = Auth::user();
         if ($user->roles == 'courier') {
             $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
-            // return dd(gettype($shipment->toArray()));
-            // $shipment = [
-            //     "data" => $shipment
-            // ];
             $html = view('courier.report', compact('shipment'))->render();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHtml($html);
