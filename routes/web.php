@@ -23,7 +23,6 @@ Route::middleware(['auth'])->group(function () {
 
     // User
     Route::resource('/users', 'UserController');
-    Route::resource('/transactions', 'TransactionController');
     Route::resource('/shipment', 'ShipmentController');
     Route::get('/mgpegawai-add', 'UserController@create');
     // End User
