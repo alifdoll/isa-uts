@@ -40,12 +40,12 @@
         "username": "azriel",
         "name": "Azriel Rizki",
         "email": "azriel@gmail.com",
-        "password": "$2y$10$81Pb9rJX.Jub7ffuU2VBUeDk2zS5.h3KIY7v.1N8cOkZfZ5z3nrXu",
+        "password": "$2y$10$7bwcvRHQ\/LypBjllV85mmeRMbho3oz5B7rLg2RcrD6\/o41N20ZoUG",
         "phone": null,
         "roles": "courier",
         "suspend": 0,
         "created_at": "2021-12-02 08:17:12",
-        "updated_at": "2021-12-07 04:07:27"
+        "updated_at": "2022-04-06 08:01:22"
     },
     {
         "id": 7,
@@ -64,12 +64,12 @@
         "username": "armando",
         "name": "Armando",
         "email": "armando@gmail.com",
-        "password": "$2y$10$BDoQN8UyxOKY9Ngdt8d58.eean.jS1ReHxeAJRoGRzzKrrNZ.1.ka",
+        "password": "$2y$10$JcTIfV.NVFXxUt2Oru.Cv.YlfHhGVy67amq1TbKsLkGYwbiUAa\/i6",
         "phone": null,
         "roles": "sender",
-        "suspend": 1,
+        "suspend": 0,
         "created_at": "2021-12-07 15:58:25",
-        "updated_at": "2021-12-07 17:30:15"
+        "updated_at": "2022-04-06 07:59:43"
     },
     {
         "id": 9,
@@ -112,12 +112,12 @@
         "username": "armando123",
         "name": "armandoo",
         "email": "armandoooo@gmail.com",
-        "password": "$2y$10$PMC7nNDMAhndZ5WKFdcniO.h.9fIKIfjD3o9JHda7FR56hmbW54r6",
+        "password": "$2y$10$OmtilPiKd.\/qGp65Fw3NsORK.DHQ91kHUDP9wC9nI81ikXVKbANDK",
         "phone": null,
         "roles": "courier",
         "suspend": 0,
         "created_at": "2021-12-08 03:02:43",
-        "updated_at": "2021-12-08 03:02:43"
+        "updated_at": "2022-04-06 08:00:36"
     },
     {
         "id": 14,
@@ -142,5 +142,17 @@
         "suspend": 0,
         "created_at": "2022-03-28 03:38:38",
         "updated_at": "2022-03-28 03:38:38"
+    },
+    {
+        "id": 16,
+        "username": "test_isa",
+        "name": "Testing sender",
+        "email": "test@gmail.com",
+        "password": "$2y$10$5h4Y9acgA7v1aOBevjj\/YOail4Ii9hk5EKvRV0YxD6.P8zPfmE78y",
+        "phone": null,
+        "roles": "sender",
+        "suspend": 0,
+        "created_at": "2022-04-06 07:53:59",
+        "updated_at": "2022-04-06 07:53:59"
     }
 ]

@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/send', 'HomeController@sendItemView');
 
 
-    Route::get('/test', 'ShipmentController@senderReport');
-    Route::get('/test2', 'ShipmentController@courierReport');
+    Route::get('/senderReport', 'ShipmentController@senderReport');
+    Route::get('/adminReport', 'ShipmentController@adminReport');
+    Route::get('/courierReport', 'ShipmentController@courierReport');
 });

@@ -9,8 +9,64 @@
         "shipment_date": "2022-04-18 00:00:00",
         "distance": 15,
         "price": 75000,
-        "shipped": 0,
+        "shipped": 1,
         "created_at": "2022-04-02 07:32:36",
-        "updated_at": "2022-04-02 07:32:36"
+        "updated_at": "2022-04-06 07:58:18"
+    },
+    {
+        "id": 2,
+        "courier_id": 9,
+        "sender_id": 1,
+        "item": "sepatu",
+        "pickup_address": "eyJpdiI6IkJydWpjYURtVmJlOFhGRkN5Y1lFREE9PSIsInZhbHVlIjoiT1ZEK3I0U2dLUkh3VlNDamwvQnQvVzU4STY3dGpwblRQVHF1WWR2N25ycz0iLCJtYWMiOiI4M2Q2NWJiZTNhMzE3Njg3M2U4NGNmMzEwZmI1ZTM3OWI4NWI5NzUzMGJiODY1MGQyMzBjOGIxYThmODQxNmIzIn0=",
+        "destination_address": "eyJpdiI6ImRaN0hZR2lOOFZqRkpNR3J5YkpRQmc9PSIsInZhbHVlIjoiVURaa2ZkQXhFUk1OU1pBVVZncHppdz09IiwibWFjIjoiOGFmZDI5NDY4MGU3YzRkOTdjN2Q4NDIyODVkNmY5MWNhZjBkNTE3MTI5NDgyNWY1MGM4ZjZjYmIxNWUxNjU0NCJ9",
+        "shipment_date": "2022-04-10 00:00:00",
+        "distance": 20,
+        "price": 100000,
+        "shipped": 1,
+        "created_at": "2022-04-06 07:19:16",
+        "updated_at": "2022-04-06 07:19:57"
+    },
+    {
+        "id": 3,
+        "courier_id": 9,
+        "sender_id": 16,
+        "item": "barang test",
+        "pickup_address": "eyJpdiI6IkdDN3dERDBmNk95VXN2ZlZZb2tnZWc9PSIsInZhbHVlIjoiVnJCUnY2UXFzcnhyM2d3dkN2M1krMi9DaTJpa3cwZ2R3UUVFKyttNzQxND0iLCJtYWMiOiIxMTZlOWNmYTZhZjFjY2JjZTk3YmU3ODg0ODllMWNmNDNkMWI1YmI5YmQ4Njg1YjQ5NDY3OWYyNjFmMWQ4MDMxIn0=",
+        "destination_address": "eyJpdiI6IjE3cnJySGMweTA1L3ROdUN2Y0sxdWc9PSIsInZhbHVlIjoicUc3T2FmTU5JVUZEK05mZVhkYTRyUT09IiwibWFjIjoiMGM3N2Q1OWJlMzU0NDZlNzRkMGVhMzE1ZjkwNTkwMjlkNTk2YmViNjJjNjBlNDE4ZTg4NTkwYjczMDgwN2FmYiJ9",
+        "shipment_date": "2022-04-28 00:00:00",
+        "distance": 20,
+        "price": 100000,
+        "shipped": 0,
+        "created_at": "2022-04-06 07:55:54",
+        "updated_at": "2022-04-06 07:55:54"
+    },
+    {
+        "id": 4,
+        "courier_id": 4,
+        "sender_id": 1,
+        "item": "test barang",
+        "pickup_address": "eyJpdiI6ImpJcDAxeWJzR0FjblBndWw5VG9jVVE9PSIsInZhbHVlIjoiWFBJNFNXVHloRlZNTmRaWjRRaTgyZz09IiwibWFjIjoiYzFkNWZmZTMwMDc3Njg0MzQxZjBlNmE0OTVmZjkwZDJiZDdkOGM1NjE2ZTk3OTEwY2YzOTdhODBlYzA2ZjFiYSJ9",
+        "destination_address": "eyJpdiI6IjRoYkcxcFRseTZTNmQzUnFwZ0I0eWc9PSIsInZhbHVlIjoieUVTempqdTU5Y3NhT3ZpaUhRZlAyUT09IiwibWFjIjoiZDQ1ZWJjNWVmNTZjNDJkMDIzMmI1OTk3MmU4N2EyYTU2ZjEwNTA3MzYzZmJkODljNDkxMjFmMjhhMmZmZDNjMiJ9",
+        "shipment_date": "2022-04-26 00:00:00",
+        "distance": 35,
+        "price": 175000,
+        "shipped": 0,
+        "created_at": "2022-04-06 07:59:07",
+        "updated_at": "2022-04-06 07:59:07"
+    },
+    {
+        "id": 5,
+        "courier_id": 4,
+        "sender_id": 8,
+        "item": "test barang",
+        "pickup_address": "eyJpdiI6Ilg3YmVQVmVUUUl1R1F2NUFqdndQaVE9PSIsInZhbHVlIjoiK0hhU1ZWcW9ackJKR3BKSm9COWR0dz09IiwibWFjIjoiYjgxMzk5YTExZjQ4ZmMyNDJmMDQ5OTU2ZTkwYjFkMDFkNDU4NzJlNjMxNDY5NzkxMjI4NzlmYTNhZDJiNzQ0NSJ9",
+        "destination_address": "eyJpdiI6IjFuMTM2alFSS2plc2plTG5qcTRqeHc9PSIsInZhbHVlIjoidVNyaGpYTi9RZitkREVBb3JuYzhLQT09IiwibWFjIjoiYzNiOTlhOWU4ZTg4Y2Q0MmY3NDI0M2Y1Y2ZmM2Y0YzE0NmExOGQxZjVlMDJhMDRhMWVkMDk0YTU2MTcyZjNiNSJ9",
+        "shipment_date": "2022-05-07 00:00:00",
+        "distance": 35,
+        "price": 175000,
+        "shipped": 0,
+        "created_at": "2022-04-06 08:02:18",
+        "updated_at": "2022-04-06 08:02:18"
     }
 ]

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Shipment;
 use App\Shipment_Stop;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -66,9 +67,11 @@ class ShipmentController extends Controller
         $user = Auth::user();
         if ($user->roles == 'sender') {
             $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
-            $html = view('sender.report', compact('shipment'))->render();
+            $shipped = Shipment::where('sender_id', Auth::user()->id)->where('shipped', 1)->get();
+            $html = view('sender.report', compact('shipment', 'shipped'))->render();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHtml($html);
+            $pdf->setPaper('a3', 'landscape');
             return $pdf->download('report_sender.pdf');
         } else {
             abort(403, 'Unauthorized Act');
@@ -80,11 +83,29 @@ class ShipmentController extends Controller
         $user = Auth::user();
         if ($user->roles == 'courier') {
             $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
-            $html = view('courier.report', compact('shipment'))->render();
+            $shipped = Shipment::where('courier_id', Auth::user()->id)->where('shipped', 1)->get();
+            $html = view('courier.report', compact('shipment', 'shipped'))->render();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHtml($html);
-            return $pdf->download('invoice.pdf');
-            // return view('sender.report', $shipment);
+            $pdf->setPaper('a3', 'landscape');
+            return $pdf->download('report_courier.pdf');
+        } else {
+            abort(403, 'Unauthorized Act');
+        }
+    }
+
+    public function adminReport()
+    {
+        $user = Auth::user();
+        if ($user->roles == 'administrator') {
+            $users = User::all();
+            $suspendedCourier = User::where('suspend', 1)->where('roles', 'courier')->get();
+            $suspendedSender = User::where('suspend', 1)->where('roles', 'sender')->get();
+            $html = view('admin.report', compact('users', 'suspendedCourier', 'suspendedSender'))->render();
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHtml($html);
+            $pdf->setPaper('a3', 'landscape');
+            return $pdf->download('report_admin.pdf');
         } else {
             abort(403, 'Unauthorized Act');
         }

@@ -5,5 +5,19 @@
         "current_location": "eyJpdiI6IjdxVkdqZUxabHpwK3liR3VodERDWGc9PSIsInZhbHVlIjoiVndKWGVIaWprL2VwZlgzV1MyVklCZklUanpZMW9waE90Q3kyaEFXcXlleG13K0tRazI0dnY5djQzVmxKbE1ZcyIsIm1hYyI6Ijk2YThmMzAxMTMwMGVlOWJjNmM5Yzg3Njc1ZDBiMWU3ZDg4MDQxZjE0NGI4MGZiNTIyNWU3OWY2YTUzZDEyZWEifQ==",
         "created_at": "2022-04-02 07:37:56",
         "updated_at": "2022-04-02 07:37:56"
+    },
+    {
+        "shipment_id": 1,
+        "sequence": 1,
+        "current_location": "eyJpdiI6Ik4vMlQrZko0UkhVU0N1djJQMG1VcVE9PSIsInZhbHVlIjoicWdQTFUrMXdZTEN4d29MbGxHSkxqMk1MYXp3Rlh4TUtFSWQwMm1iMi9haz0iLCJtYWMiOiIwY2JhZjJlMWYwMTI2OWVlNWU0ODg5NGEzMjlmZjY5OTFiNjQ4OGU4NWU5MDg4OWQ2ZDZjYTJjZTA0OGU3ZjFkIn0=",
+        "created_at": "2022-04-06 07:19:53",
+        "updated_at": "2022-04-06 07:19:53"
+    },
+    {
+        "shipment_id": 1,
+        "sequence": 1,
+        "current_location": "eyJpdiI6IjBkdmFoeDBHRWEyZW1KTytLZDBjOEE9PSIsInZhbHVlIjoid3lqNmdPQkl0RGlGcDBtdTZLaS9NZCtEZXZkV1RsWU9rd1JYYXNINFRGRnpsUko4NVBvTlJMMnJhZkZRV2JjOSIsIm1hYyI6IjVlNjFkZTgyNTFmZmFmZTcxZmMyODI3MjlmOTkyODdkMTQxZTNkNmQ3N2M3OTFkMWM2MjhmMjJmNmZkZmU2ZDUifQ==",
+        "created_at": "2022-04-06 07:57:39",
+        "updated_at": "2022-04-06 07:57:39"
     }
 ]
