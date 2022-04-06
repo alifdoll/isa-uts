@@ -13,6 +13,8 @@ use Exception;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+
 
 class HomeController extends Controller
 {

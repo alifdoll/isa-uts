@@ -27,10 +27,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mgpegawai-add', 'UserController@create');
     // End User
 
-    Route::get('/locDetail-shipped/{id}', 'ShipmentController@shipped')->name("shipped");
+    Route::put('/locDetail-shipped/{id}', 'ShipmentController@shipped')->name("shipped");
     Route::get('/locDetail-add', 'ShipmentController@storeLoc')->name("addLocation");
     Route::get('/stops/{id}', 'ShipmentController@getTrack');
 
     Route::get('/locDetail/{id}', 'HomeController@createLoc');
     Route::get('/send', 'HomeController@sendItemView');
+
+
+    Route::get('/test', 'ShipmentController@senderReport');
+    Route::get('/test2', 'ShipmentController@courierReport');
 });

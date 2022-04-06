@@ -2,43 +2,8 @@
     {
         "shipment_id": 1,
         "sequence": 1,
-        "current_location": "Gudang Barang",
-        "created_at": "2022-03-23 12:20:40",
-        "updated_at": null
-    },
-    {
-        "shipment_id": 2,
-        "sequence": 1,
-        "current_location": "tes2",
-        "created_at": null,
-        "updated_at": null
-    },
-    {
-        "shipment_id": 2,
-        "sequence": 2,
-        "current_location": "asdasd",
-        "created_at": null,
-        "updated_at": null
-    },
-    {
-        "shipment_id": 3,
-        "sequence": 1,
-        "current_location": "asdasd",
-        "created_at": null,
-        "updated_at": null
-    },
-    {
-        "shipment_id": 4,
-        "sequence": 1,
-        "current_location": "kurir mengambil barang",
-        "created_at": "2022-03-29 12:59:41",
-        "updated_at": "2022-03-29 12:59:41"
-    },
-    {
-        "shipment_id": 5,
-        "sequence": 1,
-        "current_location": "kurir mengambil barang dari penjual",
-        "created_at": "2022-03-29 13:48:29",
-        "updated_at": "2022-03-29 13:48:29"
+        "current_location": "eyJpdiI6IjdxVkdqZUxabHpwK3liR3VodERDWGc9PSIsInZhbHVlIjoiVndKWGVIaWprL2VwZlgzV1MyVklCZklUanpZMW9waE90Q3kyaEFXcXlleG13K0tRazI0dnY5djQzVmxKbE1ZcyIsIm1hYyI6Ijk2YThmMzAxMTMwMGVlOWJjNmM5Yzg3Njc1ZDBiMWU3ZDg4MDQxZjE0NGI4MGZiNTIyNWU3OWY2YTUzZDEyZWEifQ==",
+        "created_at": "2022-04-02 07:37:56",
+        "updated_at": "2022-04-02 07:37:56"
     }
 ]

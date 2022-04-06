@@ -49,8 +49,9 @@
                             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
                         </form>
                         <br>
-                        <form method="POST" action="{{ route('orders.update', $id) }}">
-                            @csrf @method("PUT")
+                        <form method="POST" action="{{ route('shipped', $id) }}">
+                            {{ csrf_field() }}
+                            {{ method_field('put') }}
                             <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">Shipped</button>
                         </form>
                     </div>

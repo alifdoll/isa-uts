@@ -50,6 +50,21 @@
                             </div>
 
                             <div class="mb-4">
+                                <label for="exampleInputEmail1" class="form-label">Roles</label>
+
+                                <select class="form-select" aria-label="Default select example" name="roles">
+
+                                    <option selected>Open this select menu</option>
+                                    <option value="sender">Sender</option>
+                                    <option value="courier">Courier</option>
+
+
+
+                                </select>
+
+                            </div>
+
+                            <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" value=""
                                     aria-describedby="emailHelp">

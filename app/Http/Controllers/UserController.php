@@ -42,10 +42,10 @@ class UserController extends Controller
         $data->name = $request->get('name');
         $data->email = $request->get('email');
         $data->password = Hash::make($request->get('password'));
-        $data->roles = 'courier';
+        $data->roles = $request->get('roles');
 
         $data->save();
-        return redirect()->route('admin.user.homeUser')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
         User::where('id', $user->id)
             ->update(['password' => Hash::make("password")]);
 
-        return redirect()->route('admin.user.homeUser')->with('status', 'Password Berhasil di reset');
+        return redirect()->route('home')->with('status', 'Password Berhasil di reset');
     }
 
     /**
@@ -101,6 +101,6 @@ class UserController extends Controller
                 ->update(['suspend' => 1]);
         }
 
-        return redirect()->route('admin.user.homeUser')->with('status', 'Berhasil suspend');
+        return redirect()->route('home')->with('status', 'Berhasil suspend');
     }
 }

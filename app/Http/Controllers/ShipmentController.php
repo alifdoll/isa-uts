@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Shipment;
 use App\Shipment_Stop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Crypt;
+
 
 class ShipmentController extends Controller
 {
@@ -13,8 +18,8 @@ class ShipmentController extends Controller
     {
         $pricePerKm = 5000;
         $data = new Shipment();
-        $data->pickup_address = $request->get('pickup_address');
-        $data->destination_address = $request->get('destination_address');
+        $data->pickup_address = Crypt::encrypt($request->get('pickup_address'));
+        $data->destination_address = Crypt::encrypt($request->get('destination_address'));
         $data->courier_id = $request->get('courier');
         $data->sender_id = $request->get('sender');
         $data->shipment_date = $request->get('shipment_date');
@@ -23,16 +28,16 @@ class ShipmentController extends Controller
         $data->price = $pricePerKm * $request->get('distance');
 
         $data->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Data User berhasil ditambahkan');
     }
 
 
 
-    public function shipped(Shipment $shipment)
+    public function shipped($id)
     {
-        $shipment->shipped = 1;
-        $shipment->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data Product berhasil diubah');
+        Shipment::where('id', $id)
+            ->update(['shipped' => 1]);
+        return redirect()->route('home')->with('status', 'Data Product berhasil diubah');
     }
 
     public function storeLoc(Request $request)
@@ -41,13 +46,13 @@ class ShipmentController extends Controller
         $data = new Shipment_Stop();
         $data->shipment_id = $request->get('shipment_id');
 
-        $data->current_location = $request->get('current_location');
+        $data->current_location = Crypt::encrypt($request->get('current_location'));
         if (count($stops) == 0) {
             $data->sequence = 1;
         }
         $data->sequence = count($stops) + 1;
         $data->save();
-        return redirect()->route('homeAdmin')->with('status', 'Data User berhasil ditambahkan');
+        return redirect()->route('home')->with('status', 'Lokasi barang berhasil ditambahkan');
     }
 
     public function getTrack($id)
@@ -55,48 +60,33 @@ class ShipmentController extends Controller
         $stops = Shipment::where('id', $id)->get();
         return view("sender.track", compact('stops'));
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function senderReport()
     {
-        //
+        $user = Auth::user();
+        if ($user->roles == 'sender') {
+            $shipment = Shipment::where('sender_id', Auth::user()->id)->get();
+            $html = view('sender.report', compact('shipment'))->render();
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHtml($html);
+            return $pdf->download('report_sender.pdf');
+        } else {
+            abort(403, 'Unauthorized Act');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function courierReport()
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user = Auth::user();
+        if ($user->roles == 'courier') {
+            $shipment = Shipment::where('courier_id', Auth::user()->id)->get();
+            $html = view('courier.report', compact('shipment'))->render();
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHtml($html);
+            return $pdf->download('invoice.pdf');
+            // return view('sender.report', $shipment);
+        } else {
+            abort(403, 'Unauthorized Act');
+        }
     }
 }

@@ -24,8 +24,8 @@ class CreateShipmentsTable extends Migration
 
             $table->string('item');
 
-            $table->string("pickup_address");
-            $table->string("destination_address");
+            $table->longText("pickup_address");
+            $table->longText("destination_address");
 
             $table->dateTime('shipment_date', 0);
 
